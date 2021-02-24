@@ -1,0 +1,27 @@
+package dw.pattern.decorator.decorators;
+
+import dw.pattern.decorator.Beverage;
+import dw.pattern.decorator.CondimentDecorator;
+
+public class Soy extends CondimentDecorator {
+    Beverage beverage;
+    public static final double PRICE = 0.40;
+
+    public Soy(Beverage beverage){
+        this.beverage = beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription() + " ,Soy";
+    }
+
+    @Override
+    public double cost() {
+        return  PRICE + beverage.cost();
+    }
+    @Override
+    public String getCostInfo() {
+        return  beverage.getCostInfo() + "$" + PRICE + "\r\n";
+    }
+}
